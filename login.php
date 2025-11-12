@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscription - Ma Boutique</title>
+  <title>Login - Ma Boutique</title>
   <link rel="stylesheet" href="css/stylePopupInscription.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -33,7 +33,7 @@
       <div class="col-md-6">
         <div class="card shadow-lg">
           <div class="card-header bg-primary text-white text-center">
-            <h4>Créer un compte</h4>
+            <h4>Me connecter sur un compte</h4>
           </div>
           <div class="message-box">
             <?php
@@ -43,11 +43,7 @@
             ?>
           </div>
           <div class="card-body">
-            <form action="php/inscription.php" method="GET">
-              <div class="mb-3">
-                <label for="nom" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" required>
-              </div>
+            <form action="php/login.php" method="GET">
               <div class="mb-3">
                 <label for="email" class="form-label">Adresse e-mail</label>
                 <input type="email" class="form-control" id="email" name="email" required>
@@ -56,15 +52,11 @@
                 <label for="password" class="form-label">Mot de passe</label>
                 <input type="password" class="form-control" id="password" name="password" required>
               </div>
-              <div class="mb-3">
-                <label for="confirm_password" class="form-label">Confirmer le mot de passe</label>
-                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-              </div>
               <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
             </form>
           </div>
           <div class="card-footer text-center">
-            <small>Déjà un compte ? <a href="login.php">Connectez-vous ici</a></small>
+            <small>Aucun compte ? <a href="inscription.php">Créer un compte ici</a></small>
           </div>
         </div>
       </div>
