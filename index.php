@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,9 +18,14 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="index.php" class="text-gray-600 hover:text-blue-500 transition">Accueil</a>
-                    <a href="#" class="text-gray-600 hover:text-blue-500 transition">Produits</a>
+                    <a href="product.php" class="text-gray-600 hover:text-blue-500 transition">Produits</a>
                     <a href="#" class="text-gray-600 hover:text-blue-500 transition">Contact</a>
-                    <a href="login.php" class="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition">Connexion</a>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <span class="text-gray-700">Bonjour, <?php echo htmlspecialchars($_SESSION['user_nom']); ?></span>
+                        <a href="php/logout.php" class="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition">Déconnexion</a>
+                    <?php else: ?>
+                        <a href="login.php" class="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition">Connexion</a>
+                    <?php endif; ?>
                 </div>
                 <div class="md:hidden">
                     <button class="text-gray-800 focus:outline-none">
@@ -31,6 +37,14 @@
             </div>
         </div>
     </nav>
+
+    <div class="container mx-auto px-6 py-4">
+        <?php if (isset($_GET['message'])): ?>
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative my-4" role="alert">
+                <span class="block sm:inline"><?php echo htmlspecialchars($_GET['message']); ?></span>
+            </div>
+        <?php endif; ?>
+    </div>
 
     <!-- Section Héros -->
     <header class="bg-white">
@@ -50,11 +64,11 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Produit 1 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://via.placeholder.com/400x300" alt="Produit 1" class="w-full h-56 object-cover">
+                    <img src="https://via.placeholder.com/400x300/000000/FFFFFF?text=Xiaomi+Pro+4" alt="Écouteurs Xiaomi Pro 4" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Produit Fantastique</h3>
-                        <p class="text-gray-600 mb-4">Une description brève mais alléchante de ce produit incroyable.</p>
-                        <a href="#" class="text-blue-500 font-semibold hover:underline">Voir le produit &rarr;</a>
+                        <h3 class="text-xl font-semibold mb-2">Xiaomi Pro 4 Écouteurs</h3>
+                        <p class="text-gray-600 mb-4">Casque d'écoute sans fil Bluetooth avec réduction de bruit active.</p>
+                        <a href="product.php" class="text-blue-500 font-semibold hover:underline">Voir le produit &rarr;</a>
                     </div>
                 </div>
                 <!-- Produit 2 -->
