@@ -1,17 +1,17 @@
 
 
-function addToCard() {
+function addToCard(id, nom, prix, image, qty) {
 
     let card;
 
     card = `
     {
           "produits": {
-            "id": "",
-            "nom": "",
-            "prix": "",
-            "image": "",
-            "qty": ""
+            "id": "`+ id + `",
+            "nom": "`+ nom + `",
+            "prix": `+ prix + `,
+            "image": "`+ image + `",
+            "qty": `+ qty + `*
         }
     }`;
 

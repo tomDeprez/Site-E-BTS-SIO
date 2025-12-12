@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="mb-8">
-                        <button onclick="addToCard();" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-6 rounded-lg text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                        <button onclick="addToCard('1', 'Xiaomi Pro 4 - Casque d\'écoute sans fil Bluetooth', 0.88, `https://ae-pic-a1.aliexpress-media.com/kf/S1af3745f87c94ae0b90ddf824d0110d8c.jpg_960x960q75.jpg_.avif`, 1);" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-6 rounded-lg text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition">
                             <i class="fas fa-shopping-cart mr-2"></i> Ajouter au Panier
                         </button>
                     </div>
