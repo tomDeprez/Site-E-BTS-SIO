@@ -1,0 +1,13 @@
+{
+    "name": "maboutique/site-e",
+    "description": "Site e-commerce avec panier et paiement Stripe",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "stripe/stripe-php": "^13.0"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {}
+    }
+}

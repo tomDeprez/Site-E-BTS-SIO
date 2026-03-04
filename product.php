@@ -6,8 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xiaomi Pro 4 - Écouteurs sans fil</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @keyframes bounce-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .animate-bounce-in {
+            animation: bounce-in 0.5s ease-out;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -22,6 +43,10 @@
                     <a href="index.php" class="text-gray-600 hover:text-blue-500 transition">Accueil</a>
                     <a href="#" class="text-blue-500 font-semibold border-b-2 border-blue-500">Produits</a>
                     <a href="#" class="text-gray-600 hover:text-blue-500 transition">Contact</a>
+                    <a href="panier.php" class="relative text-gray-600 hover:text-blue-500 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cartCount" class="hidden absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <span class="text-gray-700">Bonjour, <?php echo htmlspecialchars($_SESSION['user_nom']); ?></span>
                         <a href="php/logout.php" class="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition">Déconnexion</a>
@@ -173,6 +198,44 @@
             <p>&copy; 2025 MaBoutique. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <!-- Popup Panier -->
+    <div id="cartPopup" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4 transform transition-all animate-bounce-in">
+            <div class="flex justify-between items-start mb-4">
+                <div class="flex items-center">
+                    <div class="bg-green-100 rounded-full p-3">
+                        <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 ml-4">Produit ajouté !</h3>
+                </div>
+                <button onclick="closePopup()" class="text-gray-400 hover:text-gray-600 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-xl mb-6">
+                <img id="popupImage" src="" alt="Produit" class="w-20 h-20 object-cover rounded-lg shadow-md">
+                <div class="flex-1">
+                    <p id="popupNom" class="font-semibold text-gray-800 mb-1"></p>
+                    <p class="text-2xl font-bold text-blue-600" id="popupPrix"></p>
+                </div>
+            </div>
+
+            <div class="flex space-x-3">
+                <button onclick="closePopup()" class="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition">
+                    Continuer mes achats
+                </button>
+                <button onclick="window.location.href='panier.php'" class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition">
+                    Voir le panier
+                </button>
+            </div>
+        </div>
+    </div>
 
 </body>
 <script src="https://cdn.tailwindcss.com"></script>

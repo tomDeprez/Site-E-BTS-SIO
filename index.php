@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Ma Boutique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -20,6 +21,10 @@
                     <a href="index.php" class="text-gray-600 hover:text-blue-500 transition">Accueil</a>
                     <a href="product.php" class="text-gray-600 hover:text-blue-500 transition">Produits</a>
                     <a href="#" class="text-gray-600 hover:text-blue-500 transition">Contact</a>
+                    <a href="panier.php" class="relative text-gray-600 hover:text-blue-500 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cartCount" class="hidden absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <span class="text-gray-700">Bonjour, <?php echo htmlspecialchars($_SESSION['user_nom']); ?></span>
                         <a href="php/logout.php" class="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition">Déconnexion</a>
@@ -116,5 +121,6 @@
         }
     </style>
 
+    <script src="js/panier.js"></script>
 </body>
 </html>

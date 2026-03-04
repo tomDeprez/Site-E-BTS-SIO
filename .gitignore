@@ -1,0 +1,22 @@
+# Vendor directory (Composer dependencies)
+vendor/
+
+# Configuration files with sensitive data
+php/config.php
+
+# Composer lock file (optionnel)
+composer.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
